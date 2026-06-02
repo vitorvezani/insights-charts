@@ -610,7 +610,7 @@ right-sizer:
   config:
     default:
       vpa:
-        minReplicas: 1
+        minReplicas: 2
         updatePolicy:
           updateMode: "Off"
         resourcePolicy:
@@ -733,6 +733,9 @@ right-sizer:
       requests:
         cpu: 100m
         memory: 128Mi
+      limits:
+        cpu: 500m
+        memory: 512Mi
     # oom-detection.extraArgs -- Additional command-line flags for the controller.
     extraArgs: []
       # - "-v2"
@@ -978,4 +981,4 @@ insights-event-watcher:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-  annotations: {}
+  annotations: {}}

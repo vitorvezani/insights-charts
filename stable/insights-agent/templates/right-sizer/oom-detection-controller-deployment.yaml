@@ -11,6 +11,7 @@ metadata:
     component: right-sizer
     app: insights-agent
 spec:
+  replicas: {{ default 2 (index .Values "right-sizer" "oom-detection" "replicaCount") }}
   selector:
     matchLabels:
       component: right-sizer
