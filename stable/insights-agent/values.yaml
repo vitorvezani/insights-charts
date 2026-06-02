@@ -163,9 +163,6 @@ opa:
     repository: quay.io/fairwinds/fw-opa
     tag: "3.1"
   additionalAccess:
-  # opa.defaultTargetResources -- A default list of Kubernetes targets to which OPA
-  # policies will be applied.
-  # Each target requires a list of apiGroups and a list of Resources.
   defaultTargetResources:
   - apiGroups:
     - apps
@@ -187,19 +184,8 @@ opa:
     - networking.k8s.io
     resources:
     - ingresses
-  # opa.admissionRulesAsTargetResources -- If the admission controller is enabled,
-  # the APIGroups and Resources found in insights-admission `webhookConfig.rules`
-  # will be added as OPA Kubernetes target resources, plus
-  # supporting RBAC rules are granted to OPA, if the insights-admission
-  # `webhookConfig.rulesAutoRBAC` value is also set.
   admissionRulesAsTargetResources: true
-  # opa.targetResources -- A user-specified list of Kubernetes targets to which
-  # OPA policies will be applied.
-  # Each target requires a list of apiGroups and a list of Resources.
   targetResources: []
-  # opa.targetResourcesAutoRBAC -- Automatically add RBAC rules allowing get
-  # and list operations for APIGroups and Resources supplied via `targetResources`.
-  # This *does not* impact RBAC rules added for `defaultTargetResources`.
   targetResourcesAutoRBAC: true
   resources:
     requests:
