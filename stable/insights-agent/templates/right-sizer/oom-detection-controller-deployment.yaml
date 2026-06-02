@@ -11,6 +11,7 @@ metadata:
     component: right-sizer
     app: insights-agent
 spec:
+  replicas: 2
   selector:
     matchLabels:
       component: right-sizer
@@ -39,6 +40,13 @@ spec:
             {{- toYaml (index .Values "right-sizer" "oom-detection" "containerSecurityContext") | nindent 12 }}
           image: "{{ (index .Values "right-sizer" "oom-detection" "image" "repository") }}:{{ (index .Values "right-sizer" "oom-detection" "image" "tag") }}"
           imagePullPolicy: {{ (index .Values "right-sizer" "oom-detection" "image" "pullPolicy") }}
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
           command:
           - "right-sizer"
           - "--state-configmap-namespace"
