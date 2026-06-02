@@ -707,6 +707,15 @@ right-sizer:
     # By default, all namespaces are allowed.
     # This applies both to OOM-kill alerts, and updating memory limits if enabled.
     namespaces: []
+    imagePullSecrets: []
+    replicaCount: 2
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 512Mi
     updateMemoryLimits:
       # oom-detection.updateMemoryLimits.enabled -- Update memory limits of
       # pod-controller resources whos containers are OOM-killed.
