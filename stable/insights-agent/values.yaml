@@ -733,6 +733,10 @@ right-sizer:
       requests:
         cpu: 100m
         memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    replicas: 2
     # oom-detection.extraArgs -- Additional command-line flags for the controller.
     extraArgs: []
       # - "-v2"
